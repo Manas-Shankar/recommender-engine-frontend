@@ -1,0 +1,100 @@
+
+
+.modal_content{
+    /* border:1px solid black; */
+    color:white;
+    position: fixed;
+    width:87rem;
+    height:34rem;
+    top:15vh;
+    margin-left:3rem;
+    z-index:2;
+    border-radius:10px;
+    padding:20px;
+    box-shadow: 4px 4px 5px black;
+    background-color: #282c34;
+}
+
+.close{
+    color: white;
+    font-size: 100px;
+    position: relative;
+    float: left;
+    bottom:30px;
+    right:10px;
+    cursor: pointer;
+    font-family: none;
+}
+
+.content{
+    text-align:center;
+    /* border:1px solid black; */
+    height:100%;
+    padding:40px;
+    position: relative;
+    width:95%;
+    left:3rem;
+}
+
+.description{
+    font-family: 'Comfortaa', cursive;
+    padding:10px;
+    font-size:30px;
+    /* font-weight: bold; */
+}
+
+.form{
+    font-family: 'Comfortaa', cursive;
+    font-size:25px;
+    /* font-weight: bold; */
+}
+
+.input{
+    all:unset;
+    margin-bottom:20px;
+    margin-top:10px;
+    border:2px solid black;
+    font-family: 'Comfortaa', cursive;
+    /* font-weight:bold; */
+    font-size:20px;
+    text-align:center;
+    border-radius:5px;
+    padding:5px;
+    background-color:gray;
+    color:black;
+}
+
+
+.input:hover{
+    background-color:white;
+    color:black;
+}
+
+.input:focus{
+    background-color: white;
+    color:black;
+}
+
+.option{
+    text-align:center;
+    
+}
+
+.submit{
+    all:unset;
+    font-family: 'Comfortaa', cursive;
+    padding:5px 20px;
+    border:2px solid black;
+    /* font-weight: bold; */
+    border-radius:10px;
+    font-size:20px;
+    margin:10px;
+    box-shadow:none;
+    cursor:pointer;
+}
+
+.submit:hover{
+    background-color: black;
+    border:2px solid #fff;
+    color: #fff;
+  }
