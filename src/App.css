@@ -90,6 +90,10 @@ body{
   padding:10px;
   justify-content: space-evenly;
 }
+.link-1{
+  text-decoration: none;
+  color:black;
+}
 
 .row-2{
   /* border:1px solid black; */

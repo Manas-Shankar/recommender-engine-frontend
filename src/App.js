@@ -2,6 +2,8 @@ import './App.css';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import React from 'react';
+import {Link} from 'react-router-dom';
+import VideoView from './videoView';
 
 function App(){
   const [user,setUser] = React.useState(false);
@@ -76,6 +78,7 @@ function App(){
 
           <div className="row-1">
             <div className="card">
+            <Link to={`/video/1`} className="link-1">
               <h3>video-1</h3>
               <img 
               src="https://cdn.mos.cms.futurecdn.net/4fxJtRFSxRMGs6yUsjhrkS.jpg"
@@ -86,8 +89,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/2`} className="link-1">
             <h3>video-2</h3>
             <img 
               src="https://www.supercars.net/blog/wp-content/uploads/2019/12/Koenigsegg-news-scaled.jpg"
@@ -98,8 +104,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/3`} className="link-1">
             <h3>video-3</h3>
             <img 
             src="https://i.ytimg.com/vi/Fq2cTx-uGgA/maxresdefault.jpg"
@@ -110,8 +119,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/4`} className="link-1">
             <h3>video-4</h3>
             <img 
               src="https://cdn.idropnews.com/wp-content/uploads/2020/12/01162746/PS5-Giveaway-Enter-to-Win-a-Free-PlayStation-5.jpg"
@@ -122,8 +134,12 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                
               </p>
+              </Link>
             </div>
+
+
             <div className="card">
+            <Link to={`/video/5`} className="link-1">
             <h3>video-5</h3>
             <img 
               src="https://cdn.mos.cms.futurecdn.net/DE7w2qsRA3jVTaR8wTYp2P.jpg"
@@ -134,11 +150,15 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               
               </p>
+              </Link>
             </div>
+
           </div>
 
           <div className="row-2">
+         
             <div className="card">
+            <Link to={`/video/6`} className="link-1">
             <h3>video-6</h3>
             <img 
               src="https://www.bijlibachao.com/wp-content/uploads/2016/09/Bosch-washing-machine-update-photo.png"
@@ -149,8 +169,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/7`} className="link-1">
             <h3>video-7</h3>
             <img 
               src="https://i.ytimg.com/vi/E-gNDbz9Xbs/maxresdefault.jpg"
@@ -161,8 +184,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/8`} className="link-1">
             <h3>video-8</h3>
             <img 
               src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/13547183475129.5d3de2faec59b.jpg"
@@ -173,8 +199,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/9`} className="link-1">
             <h3>video-9</h3>
             <img 
               src="https://cdn.vox-cdn.com/thumbor/iOjXI9H8guMH90tCaLmiXeRTp78=/0x0:2040x1295/1200x800/filters:focal(743x479:1069x805)/cdn.vox-cdn.com/uploads/chorus_image/image/67629863/BudsZ.0.jpg"
@@ -185,8 +214,11 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                
               </p>
+              </Link>
             </div>
+
             <div className="card">
+            <Link to={`/video/10`} className="link-1">
             <h3>video-10</h3>
             <img 
               src="https://i.ytimg.com/vi/A3Pyk3FPPoM/maxresdefault.jpg"
@@ -197,7 +229,9 @@ function App(){
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                
               </p>
+              </Link>
             </div>
+
           </div>
 
         </div>
