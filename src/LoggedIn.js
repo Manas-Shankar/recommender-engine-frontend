@@ -14,10 +14,35 @@ export default function LoggedIn(){
     //     }
     //    },[])
 
+
+    const handleLogOut = ()=>{
+       
+      setUser(false);
+      window.location.replace("/");
+      }
+
+    
+
     return (
         <div className="opener">
-            Welcome to the LoggedIn page !
-            Hope you're having a good day !
+        <div className="App-header-logged">
+        <p className="title-logged">EngineTube</p>
+        <button className="log-out" onClick={()=>{handleLogOut()}}>
+        Sign Out</button>
+        
+      </div>
+        <div className="dashboard">
+        <div className="uploaded">
+        Welcome to the LoggedIn page !
+        Your uploaded videos are:
+
+        </div>
+        <div className="upload">
+        Here you can upload videos :
+
+        </div>
+            
+        </div>
         </div>
     );
 }

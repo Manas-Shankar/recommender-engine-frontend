@@ -2,7 +2,65 @@ body{
     font-family: 'Comfortaa', cursive;
 }
 
+.App-header-logged {
+    background-color: #282c34;
+    width:100%;
+    height: 13vh;
+    position: fixed;
+    top:0;
+    color: white;
+    z-index:2;
+  }
+
+  .title-logged{
+    font-size:40px;
+    padding:0px;
+    margin:20px 0px 25px 70px;
+    position: relative;
+    display:inline;
+    font-family: 'Pattaya', sans-serif;
+    float:left;
+  }
+
+.log-out{
+        all:unset;
+        font-size:20px;
+        margin:25px 50px 25px 0px;
+        float:right;
+        border:1px solid white;
+        padding:10px;
+        border-radius:10px;
+        cursor:pointer;
+      }
+      
+.log-out:hover{
+        color: black;
+        background-color: white;
+      }
+
+
 .opener{
     position:relative;
-    top:15vh;
+    top:13vh;
+}
+
+.dashboard{
+    
+    padding:20px;
+    height:96vh;
+    font-size:30px;
+}
+
+.uploaded{
+    border:1px solid black;
+    height:40vh;
+    padding:20px;
+    margin-bottom:30px;
+}
+
+.upload{
+    border:1px solid black;
+    height:40vh;
+    padding:20px;
+    margin-bottom:10px;
 }
