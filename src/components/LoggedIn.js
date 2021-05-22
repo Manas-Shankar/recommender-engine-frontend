@@ -1,5 +1,5 @@
 import React from 'react';
-import './loggedIn.css'
+import '../CSS/loggedIn.css';
 
 
 export default function LoggedIn(){

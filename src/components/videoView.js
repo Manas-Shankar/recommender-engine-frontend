@@ -1,20 +1,36 @@
 import React from 'react';
-import './videoView.css';
+import '../CSS/videoView.css'
 import LogIn from './LogIn';
 import SignUp from './SignUp';
+import YouTube from 'react-youtube';
 
 
 export default function VideoView(props){
 
     const [videoID,changeID] = React.useState("");
+    const [embedID,changeEmbedID] = React.useState("");
     const [logIn,showLogin] = React.useState(false);
     const [signUp,showSignUp] = React.useState(false);
-
-    console.log(props.match.params.videoId);
+    
 
     React.useEffect(() => {
      changeID(props.match.params.videoId)
-    }, [])
+     changeEmbedID(props.match.params.embedId)
+     console.log(props.match)
+  }, [])
+
+  // const checkElapsedTime = (e) => {
+  //   const duration = e.target.getDuration();
+  //   const currentTime = e.target.getCurrentTime();
+  //   // console.log(currentTime/duration)
+  //   if(currentTime/duration > 0.5)
+  //   {
+  //     console.log(duration)
+  //     console.log(currentTime)
+  //   }
+    
+  // };
+
 
     const handleOpen = (e)=>{
         console.log(e.target.id);
@@ -74,7 +90,25 @@ export default function VideoView(props){
       </div>
 
         <div className="container">
-        Hello! This is video {videoID} !
+          <div className="player-area">
+            <h2 className="player-title">Video {videoID}</h2> 
+            <div className="main-player">
+                {/* <iframe
+                  id="embedded-video"
+                  src={`https://www.youtube.com/embed/${embedID}?enablejsapi=1`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Embedded youtube"
+                /> */}
+                <YouTube
+                    videoId={embedID}
+                    // onPlay={(e) => checkElapsedTime(e)}
+                    className="Youtube"
+                />
+            </div>   
+          </div>
+        
         </div>
             
         </div>
