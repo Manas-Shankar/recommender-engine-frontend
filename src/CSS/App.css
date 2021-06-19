@@ -71,9 +71,10 @@ body{
 
 .videos-container{
   width:93vw;
-  height:100vh;
+  height:242vh;
   margin:auto;
   margin-top:8rem;
+  padding-bottom:20px;
   border-radius: 10px;
   box-shadow: 5px 5px 4px lightslategray ;
   background-color: #c5cbd3;
@@ -107,9 +108,46 @@ body{
   justify-content: space-evenly;
 }
 
+
+.row-3{
+  width:95%;
+  height:45vh;
+  margin:auto;
+  position:relative;
+  top:20px;
+  display:flex;
+  padding:10px;
+  justify-content: space-evenly;
+}
+
+.row-4{
+  width:95%;
+  height:45vh;
+  margin:auto;
+  position:relative;
+  top:20px;
+  display:flex;
+  padding:10px;
+  justify-content: space-evenly;
+}
+
+.row-5
+{
+  width:95%;
+  height:45vh;
+  margin:auto;
+  position:relative;
+  top:20px;
+  display:flex;
+  padding:10px;
+  justify-content: space-evenly;
+}
+
 .card{
   background-color: #99a4b2;
-  width:19%;
+  padding:10px;
+  width:25%;
+  height:43vh;
   margin:5px;
   border-radius:10px;
   z-index:1;
@@ -120,15 +158,31 @@ body{
   cursor: pointer;
 }
 
-.img-1{
+.card p {
+ 
   width:90%;
+  margin:auto;
+  margin-top:20px;
+  
+}
+
+.p1{
+  width:100%;
+  margin:auto;
+  position: relative;
+  bottom:15px;
+  
+}
+
+.img-1{
+  width:85%;
   border-radius:10px;
   
 }
 
 .img-2{
-  width:90%;
-  height:50%;
+  width:76%;
+  
   border-radius:10px;
   
 }
@@ -136,8 +190,10 @@ body{
 .footer{
   width:60%;
   margin:auto;
+  margin-top:154vh;
   border-top:2px solid #282c34;
   padding:20px;
   font-size:20px;
+  z-index:1;
 }
 

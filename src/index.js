@@ -12,7 +12,7 @@ ReactDOM.render(
     
     <Switch>
       <Route path="/" exact component={App}/>
-      <Route path="/video/:videoId/:embedId" exact component={VideoView}/>
+      <Route path="/video/:videoId/" exact component={VideoView}/>
       <Route path="/loggedIn" exact component={LoggedIn}/>
     </Switch>
   </Router>,

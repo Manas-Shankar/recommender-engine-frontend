@@ -3,36 +3,36 @@ import '../CSS/videoView.css'
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import YouTube from 'react-youtube';
-
+import ReactPlayer from 'react-player'
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 export default function VideoView(props){
 
     const [videoID,changeID] = React.useState("");
     const [embedID,changeEmbedID] = React.useState("");
+    const [link,setLink] = React.useState("");
+    const [objList, setList] = React.useState({});
     const [logIn,showLogin] = React.useState(false);
+    const location = useLocation();
     const [signUp,showSignUp] = React.useState(false);
-    
+    const [finished,setFinished] = React.useState(false);
+    const [recommended, setRecommended] = React.useState("");
+    const [Class,setClass] = React.useState("");
+    const url = "https://recommender-engine.herokuapp.com/recommend";
 
     React.useEffect(() => {
-     changeID(props.match.params.videoId)
-     changeEmbedID(props.match.params.embedId)
-     console.log(props.match)
+     changeID(location.state.videoId)
+     console.log(location.state)
+      changeEmbedID(props.match.params.embedId)
+      setList(location.state.data.detected_objects)
+      setLink(location.state.data.link)
+      console.log(link, objList);
+      
   }, [])
 
-  // const checkElapsedTime = (e) => {
-  //   const duration = e.target.getDuration();
-  //   const currentTime = e.target.getCurrentTime();
-  //   // console.log(currentTime/duration)
-  //   if(currentTime/duration > 0.5)
-  //   {
-  //     console.log(duration)
-  //     console.log(currentTime)
-  //   }
-    
-  // };
-
-
     const handleOpen = (e)=>{
+     
         console.log(e.target.id);
         if(e.target.id==="logIn")
         {
@@ -59,6 +59,18 @@ export default function VideoView(props){
           showSignUp(false);
         }
       }
+
+      const onFinish = ()=>{
+        axios.post(url,objList).then((res)=>{
+          console.log(res);
+          setClass(res.data.class)
+          setRecommended(res.data.link)
+  
+          console.log(Class,recommended);
+  
+        })
+        setFinished(true);
+      }
    
 
     return (
@@ -82,7 +94,7 @@ export default function VideoView(props){
           )
         }
         <div className="App-header-video">
-        <p className="title-video">EngineTube</p>
+        <p className="title-video">intelliTube</p>
         <button className="log-in-sign-up-video" onClick={(e)=>{handleOpen(e)}} id="signUp">
         Sign Up</button>
         <button className="log-in-sign-up-video" onClick={(e)=>{handleOpen(e)}} id="logIn">
@@ -91,25 +103,55 @@ export default function VideoView(props){
 
         <div className="container">
           <div className="player-area">
-            <h2 className="player-title">Video {videoID}</h2> 
+            <h2 className="player-title">{videoID}</h2> 
             <div className="main-player">
-                {/* <iframe
-                  id="embedded-video"
-                  src={`https://www.youtube.com/embed/${embedID}?enablejsapi=1`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="Embedded youtube"
-                /> */}
-                <YouTube
-                    videoId={embedID}
+                
+                {/* <YouTube
+                    videoId="u4bGGtnc6Ds"
                     // onPlay={(e) => checkElapsedTime(e)}
                     className="Youtube"
+                /> */}
+
+                <ReactPlayer 
+                url= {link}
+                className='react-player'
+                width="99%"
+                height="99%"
+                controls 
+                onEnded = {()=> {onFinish()}}
                 />
+
             </div>   
           </div>
         
         </div>
+
+                { finished && 
+                  <div className="container">
+                  <div className="player-area">
+                  <h2 className="player-title">Recommended Advert : </h2> 
+                  <div className="main-player">
+               
+                {/* <YouTube
+                    videoId="u4bGGtnc6Ds"
+                    // onPlay={(e) => checkElapsedTime(e)}
+                    className="Youtube"
+                /> */}
+                <ReactPlayer 
+                url= {recommended}
+                className='react-player'
+                width="99%"
+                height="99%"
+                controls 
+                />
+
+                </div> 
+                <p className="rec">Class of the recommended ad: {Class}</p>
+                  
+                </div>
+        
+                </div>
+                }
             
         </div>
     );
