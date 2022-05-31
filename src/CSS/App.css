@@ -151,14 +151,16 @@ body{
 
 .row-6
 {
-  width:70%;
+  width:61%;
   height:45vh;
   margin:auto;
+  
   position:relative;
   top:20px;
-  display:flex;
+  right:240px;
+  /* border:1px solid black; */
   padding:10px;
-  justify-content: space-evenly;
+  
 }
 
 .card{
