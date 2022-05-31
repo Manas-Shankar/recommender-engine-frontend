@@ -14,7 +14,9 @@ export default function VideoView(props){
     const [videoID,changeID] = React.useState("");
     const [embedID,changeEmbedID] = React.useState("");
     const [link,setLink] = React.useState("");
-    const [objList, setList] = React.useState({});
+    const [company,setCompany] =  React.useState("");
+    const [Detected_objects, setList] = React.useState("");
+    const [Word_frequency,setWord] = React.useState("");
     const [logIn,showLogin] = React.useState(false);
     const location = useLocation();
     const [signUp,showSignUp] = React.useState(false);
@@ -22,7 +24,7 @@ export default function VideoView(props){
     const [recommended, setRecommended] = React.useState("");
     const [Class,setClass] = React.useState("");
     const [videodata,setVideodata] = React.useState([]);
-    const url = "https://recommender-engine.herokuapp.com/recommend";
+    const url = "https://recommender-final-year.herokuapp.com/recommend";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAH1O6NBX0jTktS6yEsPKNTzOtjvm5x5rQ",
@@ -61,9 +63,16 @@ export default function VideoView(props){
       //   })
       //     })
       // changeEmbedID(props.match.params.embedId)
-      // setList(location.state.data.detected_objects)
-      // setLink(location.state.data.link)
-      // console.log(link, objList);
+      let obj1 = {}, obj2 = {};
+      eval('obj1='+location.state.data.objects_detected);
+      eval('obj2='+location.state.data.word_freq);
+      // console.log(obj1)
+      // console.log(obj2)
+      setList(obj1)
+      setLink(location.state.data.link)
+      setWord(obj2)
+      
+      
       
   }, [])
 
@@ -97,12 +106,16 @@ export default function VideoView(props){
       }
 
       const onFinish = ()=>{
-        console.log(objList)
-        axios.post(url,objList).then((res)=>{
+        
+        let final_obj  = {Detected_objects,Word_frequency}
+        
+        console.log(final_obj)
+        
+        axios.post(url,final_obj).then((res)=>{
           console.log(res);
           setClass(res.data.class)
           setRecommended(res.data.link)
-  
+          setCompany(res.data.company)
           console.log(Class,recommended);
   
         })
@@ -166,7 +179,7 @@ export default function VideoView(props){
                 { finished && 
                   <div className="container">
                   <div className="player-area">
-                  <h2 className="player-title">Recommended Advert : </h2> 
+                  <h2 className="player-title">Recommended Advert : {company}</h2> 
                   <div className="main-player">
                
                 {/* <YouTube
@@ -180,6 +193,7 @@ export default function VideoView(props){
                 width="99%"
                 height="99%"
                 controls 
+                playing={true}
                 />
 
                 </div> 
