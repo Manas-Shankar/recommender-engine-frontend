@@ -7,37 +7,51 @@ import VideoView from './videoView';
 import { MongoClient }  from 'mongodb' ;
 import * as Realm from 'realm-web';
 
+
 const uri = "mongodb+srv://admin:admin@videosdb.mtlip.mongodb.net/videosdatabase?retryWrites=true&w=majority";
 
 function App(){
   const [user,setUser] = React.useState(false);
   const [data,setData] = React.useState([]);
+  
   const [logIn,showLogin] = React.useState(false);
   const [signUp,showSignUp] = React.useState(false);
-  const app = new Realm.App({id: process.env.REACT_APP_REALM_APP_ID});
+  const app1 = new Realm.App({id: process.env.REACT_APP_REALM_APP_ID});
+  
+
+ 
   
 
   React.useEffect(()=>{
     async function getData () {
-    	const user = await app.logIn(Realm.Credentials.anonymous())
-      const client = app.currentUser.mongoClient('mongodb-atlas');
-      const vids = client.db('videosdatabase').collection('videos');
-      vids.find()
+    	const user = await app1.logIn(Realm.Credentials.anonymous())
+      
+      const client1 = app1.currentUser.mongoClient('mongodb-atlas');
+      
+      const vids1 = client1.db('test').collection('videos');
+      console.log(vids1)
+    
+
+      vids1.find()
       .then((res)=>{
         console.log(res);
         setData(res);
-        console.log(res);
+        
       })
       .catch((err)=>{
         console.log(err);
       })
-    }
+     
+      
+
+        }
     
     getData();
-   
+    
   },[])
 
   const handleOpen = (e)=>{
+   
     console.log(e.target.id);
     if(e.target.id==="logIn")
     {
@@ -110,19 +124,19 @@ function App(){
             pathname: "/video/1/",
                 state: {
                   data : data[0],
-                  videoId : "How a fire hydrant works"
+                  videoId : "New ASUS Laptops Are Here!"
                 },
               }}
             className="link-1">
-              <h3>How a fire hydrant works</h3>
+              <h3>New ASUS Laptops Are Here!</h3>
               <img 
-              src="https://i.ytimg.com/vi/HzFeh05_y3A/hqdefault.jpg"
+              src="https://i.ytimg.com/an_webp/gpmTV9Ki2Qk/mqdefault_6s.webp?du=3000&sqp=CPi015QG&rs=AOn4CLDDseMpCiS52eOJONBVSWsXe1MtFw"
                 className="img-2"
                 alt=""
               />
               <p class="p1">
-              In this video we learn the inner workings of a fire hydrant, 
-              the most important local resource for firefighters
+              ASUS have announced 4 new Zenbook laptops in their 2022 lineup, featuring innovative desgins, a mux switch, 
+              and addressing issues with previous editions !
               </p>
               </Link>
             </div>
@@ -133,18 +147,18 @@ function App(){
             pathname: "/video/2/",
                 state: {
                   data : data[1],
-                  videoId : "Vintage cuckoo clocks are still ticking in Bengaluru"
+                  videoId : "Tee Off Mr Bean (part 2/5) - Mr. Bean Official"
                 },
               }} 
             className="link-1">
-            <h3>Vintage cuckoo clocks are still ticking in Bengaluru</h3>
+            <h3>Tee Off Mr Bean (part 2/5) - Mr. Bean Official</h3>
             <img 
-              src="https://i.ytimg.com/vi/xhetXxhjIno/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/cbPtLlJpv6A/mqdefault_6s.webp?du=3000&sqp=CICA15QG&rs=AOn4CLBH4lAdW3T4JzS4onGZoUbnDO6yQw"
                 className="img-1"
                 alt=""
               />
-              <p>The shop, located in Bengaluru’s Majestic, 
-              has been selling and repairing cuckoo clocks for more than 50 years now. 
+              <p>Mr. Bean loses his trousers again, and has his first round of crazy gold in the afternoon ! 
+            
               </p>
               </Link>
             </div>
@@ -155,19 +169,20 @@ function App(){
             pathname: "/video/3/",
                 state: {
                   data : data[2],
-                  videoId : "The Impossible Razer Laptop"
+                  videoId : "Best of Michael Scott - The Office US | Comedy Bites"
                 },
               }} 
             className="link-1">
-            <h3>The Impossible Razer Laptop</h3>
+            <h3>Best of Michael Scott - The Office US | Comedy Bites</h3>
             <img 
-            src="data:image/jpeg;base64,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"
+            src="https://i.ytimg.com/an_webp/B3_UM8xxg5E/mqdefault_6s.webp?du=3000&sqp=CKO315QG&rs=AOn4CLDTLtzh87EuYxagRrKHjrPYr2U75w"
             className="img-1"
             alt=""
               />
               <p>
-              First look at a device running the AMD 5900HX with up to an RTX 3080. 
-              The cooling is great on both those components in a such a small 14” package.
+              From "The Office", an American television mockumentary sitcom, 
+              created as an adaptation of the British series of the same name.
+              
                
               </p>
               </Link>
@@ -179,18 +194,18 @@ function App(){
             pathname: "/video/4/",
                 state: {
                   data : data[3],
-                  videoId : "How a Microwave Oven Works"
+                  videoId : "Library  Special Episode | Classic MrBean"
                 },
               }} 
             className="link-1">
-            <h3>How a Microwave Oven Works</h3>
+            <h3>Library  Special Episode | Classic MrBean</h3>
             <img 
-              src="https://i.ytimg.com/vi/kp33ZprO0Ck/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/SpF5EZy9ZOY/mqdefault_6s.webp?du=3000&sqp=CMap15QG&rs=AOn4CLDOwHYaaAmvslS-nRhqwjEYHitu1A"
                 className="img-1"
                 alt=""
               />
               <p> 
-              Bill details how a microwave oven heats food, by describing the vacuum tube, known as a magnetron, and its properties
+              Mr. Bean visits a rare book library, and tries to copy a page of a book by shading on tracing paper, but things go wrong ! 
               </p>
               </Link>
             </div>
@@ -210,18 +225,18 @@ function App(){
             pathname: "/video/5/",
                 state: {
                   data : data[4],
-                  videoId : "Turn your Outdated Computer into a Monitor! - Luna Display"
+                  videoId : "Making New York-style pizza at home"
                 },
               }} 
             className="link-1">
-            <h3>Turn your Outdated Computer into a Monitor! - Luna Display</h3>
+            <h3>Making New York-style pizza at home</h3>
             <img 
-              src="https://i.ytimg.com/vi/u4bGGtnc6Ds/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/SDpCzJw2xm4/mqdefault_6s.webp?du=3000&sqp=CNC515QG&rs=AOn4CLCimF0BO8RahlQx3fSS2cg0P5j79A"
                 className="img-1"
                 alt=""
               />
-              <p>been a thing since 2014. 
-              Enter Luna Display, a dongle that hopes to fix that – But is it really better than AirPlay?
+              <p>Italian American Youtube chef Adam Ragusea detials his version of being able to make a New 
+              York style pizza !
               
               </p>
               </Link>
@@ -233,18 +248,19 @@ function App(){
             pathname: "/video/6/",
                 state: {
                   data : data[5],
-                  videoId : "The 2020 Voice Assistant Battle"
+                  videoId : "XPS 13 Plus - Cleaner And Faster Than A MacBook!"
                 },
               }}  
             className="link-1">
-            <h3>The 2020 Voice Assistant Battle</h3>
+            <h3>XPS 13 Plus - Cleaner And Faster Than A MacBook!</h3>
             <img 
-              src="https://i.ytimg.com/vi/ou9CjRWq1tM/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/6fPj6mj-M_k/mqdefault_6s.webp?du=3000&sqp=CLKW15QG&rs=AOn4CLDlRNZOv857v-MdseqhyrZ8IVDsUA"
                 className="img-1"
                 alt=""
               />
               <p>
-              Full comparison of Google Assistant vs Siri vs Bixby vs Amazon Alexa - Voice Assistants in 2020
+              Review of the XPS 13 Plus 9320 (2022). Running the new i7-1280P chip from Intel. 
+              This is the most powerful 13" laptop they've ever made.
               </p>
               </Link>
             </div>
@@ -255,18 +271,17 @@ function App(){
             pathname: "/video/7/",
                 state: {
                   data : data[6],
-                  videoId : "Gameloft Montréal  Faites le tour du studio en 5 minutes!"
+                  videoId : "Blowdrying Tutorial | Mens Hairstyle Tutorial 2022"
                 },
               }}  
             className="link-1">
-            <h3>Gameloft Montréal  Faites le tour du studio en 5 minutes!</h3>
+            <h3>Blowdrying Tutorial | Mens Hairstyle Tutorial 2022</h3>
             <img 
-              src="https://i.ytimg.com/vi/V2MaaMR6t3c/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/tqXDa7k3sUc/mqdefault_6s.webp?du=3000&sqp=CNey15QG&rs=AOn4CLC0eBlPjCypgVc1z9hMbKzgVPpbpA"
                 className="img-1"
                 alt=""
               />
-              <p>This is Gameloft Montreal's exclusive tour of its studio! 
-              Get a behind-the-scenes look of your favourite games ! 
+              <p>You guys asked for it so here it is! A men's hairstyle tutorial teaching you how to use a hair dryer / blow dryer properly.  
               
               </p>
               </Link>
@@ -278,18 +293,18 @@ function App(){
             pathname: "/video/8/",
                 state: {
                   data : data[7],
-                  videoId : "Darksiders II - Vigil Games Studio Tour"
+                  videoId : "I got hacked by an iPhone Cable"
                 },
               }}  
             className="link-1">
-            <h3>Darksiders II - Vigil Games Studio Tour</h3>
+            <h3>I got hacked by an iPhone Cable</h3>
             <img 
-              src="https://i.ytimg.com/vi/EdUvOhOFeiY/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/IrXLRxSsMbs/mqdefault_6s.webp?du=3000&sqp=CNWk15QG&rs=AOn4CLAmcioAsZawUcSItPE8aZQrLaFHmw"
                 className="img-1"
                 alt=""
               />
-              <p>Take a whirlwind tour of Vigil Games 
-              to see the team hard at work on Darksiders II.
+              <p>Watch How this simple iPhone Cable can hack your computer, and steal everything you own, 
+              and that the threat only gets bigger from there. 
               </p>
               </Link>
             </div>
@@ -306,21 +321,18 @@ function App(){
             pathname: "/video/9/",
                 state: {
                   data : data[8],
-                  videoId : "Why do 'Gaming' Phones Exist??"
+                  videoId : "The MX Master 3 Is The Mouse You Want"
                 },
               }}  
               className="link-1">
-            <h3>Why do 'Gaming' Phones Exist??</h3>
+            <h3>The MX Master 3 Is The Mouse You Want</h3>
             <img 
-              src="https://i.ytimg.com/vi/9ujDlJaSbbM/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/7YF6VOqlfVM/mqdefault_6s.webp?du=3000&sqp=COCo15QG&rs=AOn4CLBCimAcJYUe_1Y91qLZ7T5o4O622g"
                 className="img-1"
                 alt=""
               />
               <p>
-              A look at Lenovo Legion Duel Phone 2, 
-              Nubia RedMagic 6 Pro, ASUS ROG Phone 5 
-              Ultimate, to decide the best one 
-              during the silicon shortage
+              The Logitech MX Master 3 makes the best mouse better, with a host of new and improved features from previous iterations .
               </p>
               </Link>
             </div>
@@ -332,19 +344,19 @@ function App(){
             pathname: "/video/10/",
                 state: {
                   data : data[9],
-                  videoId : "Dream Desk Setup 5.0: Big Screen Productivity and Gaming"
+                  videoId : "Why do 'Gaming' Phones Exist"
                 },
               }}  
               className="link-1">
-            <h3>Dream Desk Setup 5.0: Big Screen Productivity and Gaming</h3>
+            <h3>Why do 'Gaming' Phones Exist</h3>
             <img 
-              src="https://i.ytimg.com/vi/Xzp3fF6AL88/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/9ujDlJaSbbM/mqdefault_6s.webp?du=3000&sqp=COKw15QG&rs=AOn4CLAZ6zaWblvTOCJBJwQUZmtld6l1lw"
                 className="img-1"
                 alt=""
               />
-              <p>Upgrades to the Dream Desk Setup-2020  
-              for working from home, gaming and relaxing. 
-               
+              <p>
+              We took a look at Lenovo Legion Duel Phone 2, Nubia RedMagic 6 Pro, 
+              and ASUS ROG Phone 5 Ultimate to make some hard choices 
               </p>
               </Link>
             </div>
@@ -355,18 +367,18 @@ function App(){
             pathname: "/video/11/",
                 state: {
                   data : data[10],
-                  videoId : "Google Pixel 4a Review: Simple and Clean!"
+                  videoId : "Dream Desk Setup 5.0 | Big Screen Productivity and Gaming"
                 },
               }}  
          className="link-1">
-         <h3>Google Pixel 4a Review: Simple and Clean!</h3>
+         <h3>Dream Desk Setup 5.0 | Big Screen Productivity and Gaming</h3>
          <img 
-           src="data:image/jpeg;base64,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"
+           src="https://i.ytimg.com/an_webp/Xzp3fF6AL88/mqdefault_6s.webp?du=3000&sqp=CJaJ15QG&rs=AOn4CLBlIowf2IAbd3iDtQFfUErArUkowA"
              className="img-1"
              alt=""
            />
            <p>
-           The mission of Google with this handset is a simple one, and that's to beat the iPhone SE.
+           Upgraded my Dream Desk Setup for 2020 with improvements for working from home, gaming and relaxing.
            </p>
            </Link>
          </div>
@@ -377,18 +389,18 @@ function App(){
             pathname: "/video/12/",
                 state: {
                   data : data[11],
-                 videoId : "How Do Fire Hydrants Work?"
+                 videoId : "Avoid These Keyboards!"
                 },
               }} 
          className="link-1">
-         <h3>How Do Fire Hydrants Work?</h3>
+         <h3>Avoid These Keyboards!</h3>
          <img 
-           src="https://i.ytimg.com/vi/YanPpmDkRLU/maxresdefault.jpg"
+           src="https://i.ytimg.com/an_webp/S5-12O3kiho/mqdefault_6s.webp?du=3000&sqp=CNiq15QG&rs=AOn4CLBTDTpfhAXD8lFGD4SyZGkC09kOMg"
              className="img-1"
              alt=""
            />
            <p>
-           This video isn't meant to be a comprehensive guide to fire hydrants, and here, we look mainly at US hydrants and fire systems.
+           My review of the CoolerMaster SK650 and SK630. Beautiful low profile mechanical keyboards that you shouldn't buy.
            </p>
            </Link>
          </div>
@@ -405,19 +417,18 @@ function App(){
             pathname: "/video/13/",
                 state: {
                   data : data[12],
-                  videoId : "Home Office Updated Setup 2021 ft. UPLIFT Commercial Desk V2"
+                  videoId : "Darksiders II - Vigil Games Studio Tour"
                 },
               }} 
             className="link-1">
-            <h3>Home Office Updated Setup 2021 ft. UPLIFT Commercial Desk V2</h3>
+            <h3>Darksiders II - Vigil Games Studio Tour</h3>
             <img 
-              src="https://i.ytimg.com/vi/0oLzoYnPHY8/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/EdUvOhOFeiY/mqdefault_6s.webp?du=3000&sqp=CICo15QG&rs=AOn4CLDOdjCHm2R1OkGnxtKg7M_CnUtgJw"
                 className="img-2"
                 alt=""
               />
               <p>
-              Spent last week rearranging the home office space, and 
-               the current configuration is working well.
+              Take a whirlwind tour of Vigil Games to see the team hard at work on Darksiders II.
               </p>
               </Link>
             </div>
@@ -428,18 +439,19 @@ function App(){
             pathname: "/video/14/",
                 state: {
                   data : data[13],
-                  videoId : "Why Everyone is Copying AirPods: Explained!"
+                  videoId : "The 2020 Voice Assistant Battle"
                 },
               }}  
             className="link-1">
-            <h3>Why Everyone is Copying AirPods: Explained!</h3>
+            <h3>The 2020 Voice Assistant Battle</h3>
             <img 
-              src="https://i.ytimg.com/vi/zHAB4qDsgKY/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/ou9CjRWq1tM/mqdefault_6s.webp?du=3000&sqp=CPmh15QG&rs=AOn4CLC5sIRCWlCa1jnPcrUHj4FG9RC31g"
                 className="img-1"
                 alt=""
               />
-              <p>The TRUTH about AirPods clones... 
-              and how they're actually helping usher in a dream wireless future.
+              <p>
+              Full comparison of Google Assistant vs Siri vs Bixby vs Amazon Alexa - Voice Assistants in 2020 - Do they suck?
+
               </p>
               </Link>
             </div>
@@ -450,19 +462,18 @@ function App(){
             pathname: "/video/15/",
                 state: {
                   data : data[14],
-                  videoId : "Avoid These Keyboards !"
+                  videoId : "Turn your Outdated Computer into a Monitor! - Luna Display"
                 },
               }} 
             className="link-1">
-            <h3>Avoid These Keyboards !</h3>
+            <h3>Turn your Outdated Computer into a Monitor! - Luna Display</h3>
             <img 
-              src="https://i.ytimg.com/vi/S5-12O3kiho/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/u4bGGtnc6Ds/mqdefault_6s.webp?du=3000&sqp=CISz15QG&rs=AOn4CLDwVULvXpkLxSoog1L71pNvQCqr9g"
                 className="img-1"
                 alt=""
               />
               <p>
-              My review of the CoolerMaster SK650 and SK630. 
-              Beautiful low profile mechanical keyboards that you shouldn't buy.
+              Been a thing since 2014. Enter Luna Display, a dongle that hopes to fix that – But is it really better than AirPlay?
               </p>
               </Link>
             </div>
@@ -473,19 +484,18 @@ function App(){
             pathname: "/video/16/",
                 state: {
                   data : data[15],
-                  videoId : "Logitech G502 Lightspeed Review - NO reason NOT to upgrade"
+                  videoId : "Why Everyone is Copying AirPods Explained!"
                 },
               }} 
              className="link-1">
-            <h3>Logitech G502 Lightspeed Review - NO reason NOT to upgrade</h3>
+            <h3>Why Everyone is Copying AirPods Explained!</h3>
             <img 
-              src="https://i.ytimg.com/vi/tDNShkud4HE/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/zHAB4qDsgKY/mqdefault_6s.webp?du=3000&sqp=CLaw15QG&rs=AOn4CLCm2utl9g4TGKMZrSmegqo6fpf3lQ"
                 className="img-2"
                 alt=""
               />
               <p className="p1"> 
-              The G502 Lightspeed is the new wireless version with the HERO sensor,
-              but can it compete with other offerings ?
+              The TRUTH about AirPods clones... and how they're actually helping usher in a dream wireless future.
               </p>
               </Link>
             </div>
@@ -503,18 +513,20 @@ function App(){
             pathname: "/video/17/",
                 state: {
                   data : data[16],
-                  videoId : "The Dream Desk Setup - Workspace + Desk Tour 2020"
+                  videoId : "Samsung S21 Ultra vs iPhone Battery Life Test!"
                 },
               }}  
             className="link-1">
-            <h3>The Dream Desk Setup - Workspace + Desk Tour 2020</h3>
+            <h3>Samsung S21 Ultra vs iPhone Battery Life Test!</h3>
             <img 
-              src="https://i.ytimg.com/vi/aRgqQe-8zYk/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/OmzKPmSW1Bw/mqdefault_6s.webp?du=3000&sqp=CNy615QG&rs=AOn4CLAdkpTuGA_adiq-NCLAbqW1v_KeLQ"
                 className="img-1"
                 alt=""
               />
               <p> 
-              Take a tour of my work from home office and desk setup.
+              Drain Comparison of Samsung Galaxy S21 Ultra 
+              vs Samsung galaxy Note 20 Ultra vs Samsung Galaxy S20 Ultra 
+              vs iPhone 12 Pro Max vs iPhone 11 Pro Max. 
               </p>
               </Link>
             </div>
@@ -525,17 +537,21 @@ function App(){
             pathname: "/video/18/",
                 state: {
                   data : data[17],
-                  videoId : "Cyberpunk 2077 - CD Projekt Red Studio Tour | Golden Joystick Awards 2019"
+                  videoId : "Hotdog cooking tutorial"
                 },
               }}  
             className="link-1">
-            <h3>Cyberpunk 2077 - CD Projekt Red Studio Tour | Golden Joystick Awards 2019</h3>
+            <h3>Hotdog cooking tutorial</h3>
             <img 
-              src="https://i.ytimg.com/vi/99E9KbbXD3A/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/-p7YMtvYvSM/mqdefault_6s.webp?du=3000&sqp=COmx15QG&rs=AOn4CLDeVR6_Iw-EcDAh7YMYS-DILtsg-A"
                 className="img-2"
                 alt=""
               />
-              <p className="p1">We took a tour around the CD Projekt Red studio ahead of the upcoming release of their game Cyberpunk 2077.
+              <p className="p1">
+              I made a famous street food in Korea, corn dogs.
+              (In Korea, it is called a hot dog.)
+              There are a lot of different toppings, so I made three.
+              It's really crispy and really tasty.
               </p>
               </Link>
             </div>
@@ -546,18 +562,18 @@ function App(){
             pathname: "/video/19/",
                 state: {
                   data : data[18],
-                  videoId : "Why Samsung is about to take over."
+                  videoId : "Cyberpunk 2077 - CD Projekt Red Studio Tour"
                 },
               }}  
             className="link-1">
-            <h3>Why Samsung is about to take over.</h3>
+            <h3>Cyberpunk 2077 - CD Projekt Red Studio Tour</h3>
             <img 
-              src="https://i.pinimg.com/originals/a8/82/b6/a882b6b2e98c2720603f6e0b6545a0dd.jpg"
+              src="https://i.ytimg.com/an_webp/99E9KbbXD3A/mqdefault_6s.webp?du=3000&sqp=CMDB15QG&rs=AOn4CLBeM_1mI5JJP9Kyx2_H6dPZMrrULw"
                 className="img-1"
                 alt=""
               />
               <p className="p1">
-              The launch of the Samsung Galaxy S20 FE is the first sign of Samsung starting to win. Here's what I think is happening.
+              We took a tour around the CD Projekt Red studio ahead of the upcoming release of their game Cyberpunk 2077.
               </p>
               </Link>
             </div>
@@ -568,19 +584,18 @@ function App(){
             pathname: "/video/20/",
                 state: {
                   data : data[19],
-                  videoId : "Samsung S21 Ultra vs iPhone Battery Life Test!"
+                  videoId : "Home Office Updated Setup 2021 ft UPLIFT Commercial Desk V2"
                 },
               }}   
             className="link-1">
-            <h3>Samsung S21 Ultra vs iPhone Battery Life Test!</h3>
+            <h3>Home Office Updated Setup 2021 ft UPLIFT Commercial Desk V2</h3>
             <img 
-              src="https://i.ytimg.com/vi/OmzKPmSW1Bw/maxresdefault.jpg"
+              src="https://i.ytimg.com/an_webp/0oLzoYnPHY8/mqdefault_6s.webp?du=3000&sqp=CNut15QG&rs=AOn4CLAmuCueJR2wBsnoTzVXgnmBQwfKkQ"
                 className="img-1"
                 alt=""
               />
               <p className="p1">
-              Full battery Life Drain Comparison of Samsung Galaxy S21 Ultra vs 
-              Samsung Galaxy S20 Ultra vs iPhone 12 Pro Max vs iPhone 11 Pro Max.
+              I spent last week rearranging my home office space and I’m liking this current configuration the most right now.
               </p>
               </Link>
             </div>
@@ -588,11 +603,781 @@ function App(){
           </div>
 
 
+// new stuff begins here
+
+
+
+
+
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/21/",
+                state: {
+                  data : data[20],
+                  videoId : "Crazy Driving - Funny Clip | Classic Mr Bean"
+                },
+              }}  
+            className="link-1">
+            <h3>Crazy Driving | Funny Clip | Classic Mr Bean</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/FYuQctvKNLg/mqdefault_6s.webp?du=3000&sqp=CJCq15QG&rs=AOn4CLAa-whSXLbR8CYp9L2dMth2XD5qCw"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              Mr. Bean is Running late for his dentist's appointment, so he has to drive whilst changing clothes 
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/22/",
+                state: {
+                  data : data[21],
+                  videoId : "Danny Macaskill : The Ridge"
+                },
+              }}  
+            className="link-1">
+            <h3>Danny Macaskill : The Ridge</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/xQ_IQS3VKjA/mqdefault_6s.webp?du=3000&sqp=CICi15QG&rs=AOn4CLDacAtmeYxFx8KB0jCfujD9ObUQFA"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              'The Ridge' is the brand new film from Danny Macaskill, as he returns to his native 
+              home in Scotland to take on a death-defying ride along the notorious Cuillin Ridgeline.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/23/",
+                state: {
+                  data : data[22],
+                  videoId : "Finding The Best Dominos Pizza : The Urban Guide"
+                },
+              }}  
+            className="link-1">
+            <h3>Finding The Best Dominos Pizza : The Urban Guide</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/16RDAgxZivU/mqdefault_6s.webp?du=3000&sqp=CNi515QG&rs=AOn4CLD0xI8NRpZba739r1kcMOm6xVpW2A"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              You wanted Antil & Rohit to try all the Domino's ke non-veg pizzas. 
+              Watch to find out Antil & Rohit's Top 3 choices !
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/24/",
+                state: {
+                  data : data[23],
+                  videoId : "Mission Impossible - Fallout Ambushed by the CIA"
+                },
+              }}   
+            className="link-1">
+            <h3>Mission Impossible - Fallout Ambushed by the CIA</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/Ar5QDYsU1Qg/mqdefault_6s.webp?du=3000&sqp=CJjO15QG&rs=AOn4CLBMayMd_UHtABBYv8ZViWHASNRMig"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Sent by British intelligence to kill Solomon Lane, Ilsa  
+              is trying to catch up to Ethan Hunt in a wild car chase through the streets of Paris.
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/25/",
+                state: {
+                  data : data[24],
+                  videoId : "English Names for Cups, Glasses, Mugs etc"
+                },
+              }}  
+            className="link-1">
+            <h3>English Names for Cups, Glasses, Mugs etc</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/lHJIfoYbf0g/mqdefault_6s.webp?du=3000&sqp=CJDS15QG&rs=AOn4CLCokuNnG9sau8mJ553Gn53khI2Xqg"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              Learn about the English names for glasses, tumblers, cups, mugs, pitchers, jars, etc.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/26/",
+                state: {
+                  data : data[25],
+                  videoId : "At the Airport"
+                },
+              }}  
+            className="link-1">
+            <h3>At the Airport</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/jiBHZ_rqHB8/mqdefault_6s.webp?du=3000&sqp=CKGx15QG&rs=AOn4CLDFADrkSEDyMF234VIAZhJB4D5RRQ"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              Learn English words and phrases you can use at the airport when checking in, 
+              going through security and while traveling by plane.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/27/",
+                state: {
+                  data : data[26],
+                  videoId : "BABY DRIVER - 6-Minute Opening Clip"
+                },
+              }}  
+            className="link-1">
+            <h3>BABY DRIVER - 6-Minute Opening Clip</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/6XMuUVw7TOM/mqdefault_6s.webp?du=3000&sqp=CNqq15QG&rs=AOn4CLDMq0iFfM_-rlMgNJ29fidgpkeXmg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Check out this cool 6 -minute clip from #BabyDriverMovie in cinemas August 2.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/28/",
+                state: {
+                  data : data[27],
+                  videoId : "How To Sharpen Dull Knives"
+                },
+              }}   
+            className="link-1">
+            <h3>How To Sharpen Dull Knives</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/Wk3scs5FqCY/mqdefault_6s.webp?du=3000&sqp=COS-15QG&rs=AOn4CLCUW4qTXRyFW0ipuOGeYki4ySfyOQ"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Here is what you'll need! Check out the Tasty One-Stop Shop for cookbooks, aprons, hats, and more at TastyShop.com
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/29/",
+                state: {
+                  data : data[28],
+                  videoId : "Khaabon Ke Parinday (Full video song) Zindagi Na Milegi Dobara"
+                },
+              }}  
+            className="link-1">
+            <h3>Khaabon Ke Parinday (Full video song) Zindagi Na Milegi Dobara</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/R0XjwtP_iTY/mqdefault_6s.webp?du=3000&sqp=CJzW15QG&rs=AOn4CLDLN9Ab3qw4X96yGYivFSPFUpR11A"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              From the movie "Zindagi Na Milegi Dobara" 
+              starring Hrithik Roshan, Kartina Kaif, Farhan Akhtar, Abhey Deol and Kalki Koechin
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/30/",
+                state: {
+                  data : data[29],
+                  videoId : "How to Choose Fresh Fruits and Vegetables From the Market"
+                },
+              }}  
+            className="link-1">
+            <h3>How to Choose Fresh Fruits and Vegetables From the Market</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/dtP8pTwQgc8/mqdefault_6s.webp?du=3000&sqp=CKaU15QG&rs=AOn4CLA8srw6b84E5WGu_ESZP9gFcmx-8Q"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              How to identify fresh and healthy fruits and vegetables in the Indian market every single time?
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/31/",
+                state: {
+                  data : data[30],
+                  videoId : "How Japan’s High-Speed Bullet Train Works"
+                },
+              }}  
+            className="link-1">
+            <h3>How Japan’s High-Speed Bullet Train Works</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/oL-AOAOSTFw/mqdefault_6s.webp?du=3000&sqp=CPTB15QG&rs=AOn4CLBO6nFKFJ4JFS5DLZLtgb8ZK-wLfA"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Learn some of the high-tech engineering behind the Shinkansen, and how the trains are kept so precisely on schedule.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/32/",
+                state: {
+                  data : data[31],
+                  videoId : "Musical Chairs Song for Children (Official Video) by Miss Patty"
+                },
+              }}   
+            className="link-1">
+            <h3>Musical Chairs Song for Children (Official Video) by Miss Patty</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/-oO7Vk3lNXM/mqdefault_6s.webp?du=3000&sqp=CPHO15QG&rs=AOn4CLB-WTLhbUY6hbWuxTCQSxDASJQWRg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Musical Chairs can be played with many games, developing strategic thinking, listening to directions and social comfort.
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/33/",
+                state: {
+                  data : data[32],
+                  videoId : "How to use a Fork and Knife Correctly to eat"
+                },
+              }}  
+            className="link-1">
+            <h3>How to use a Fork and Knife Correctly to eat</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/dtQDNI_64JE/mqdefault_6s.webp?du=3000&sqp=CJPb15QG&rs=AOn4CLBx23vP5FlNlLGtMeT-mK78stv7xg"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              In this video on simple dining etiquettes, 
+              I take you through the British method of using a fork and knife which is what we use in India.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/34/",
+                state: {
+                  data : data[33],
+                  videoId : "How Nathans Makes The Most Legendary Hot Dogs In NYC"
+                },
+              }}  
+            className="link-1">
+            <h3>How Nathans Makes The Most Legendary Hot Dogs In NYC</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/dbPIalzF7Qc/mqdefault_6s.webp?du=3000&sqp=CNir15QG&rs=AOn4CLDt5CsG0lPK2kEajutIPx8AyqVVBQ"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              The restaurant has grown into an iconic global brand with its internationally recognized annual hot-dog-eating contest.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/35/",
+                state: {
+                  data : data[34],
+                  videoId : "London to Paris on the new Eurostar e320"
+                },
+              }}  
+            className="link-1">
+            <h3>London to Paris on the new Eurostar e320</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/fP3lUQ2kFCQ/mqdefault_6s.webp?du=3000&sqp=CIir15QG&rs=AOn4CLDt6eLXPo3PQXPPkBY_zgex7wngNQ"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Join me for a short trip from London to Paris on Eurostar. 
+              We will also check out the business lounge using our Amex Plat card.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/36/",
+                state: {
+                  data : data[35],
+                  videoId : "How to Open Champagne"
+                },
+              }}   
+            className="link-1">
+            <h3>How to Open Champagne</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/nDBKqoaCTkc/mqdefault_6s.webp?du=3000&sqp=CI2r15QG&rs=AOn4CLBefmWNRzQNZkAwrqRRtrjb-9osGg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Every New Year's Eve, many people wonder how to open champagne. 
+              Chef Jason Hill shows you how to open champagne the correct way 
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/37/",
+                state: {
+                  data : data[36],
+                  videoId : "Paris to Milan by TGV train from €29 - video guide"
+                },
+              }}  
+            className="link-1">
+            <h3>Paris to Milan by TGV train from €29 - video guide</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/B09t_WJz_mM/mqdefault_6s.webp?du=3000&sqp=CNmz15QG&rs=AOn4CLDCIsuUcAvDSYHOj98kkRX8LiqUEw"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              A journey from Paris to Turin & Milan by TGV high-speed train, 
+              showing the train interior & exterior, the scenery and food. 
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/38/",
+                state: {
+                  data : data[37],
+                  videoId : "Ordered ENTIRE Krispy Kreme DONUT MENU"
+                },
+              }}  
+            className="link-1">
+            <h3>Ordered ENTIRE Krispy Kreme DONUT MENU</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/f-XFQmr5eV8/mqdefault_6s.webp?du=3000&sqp=COzg15QG&rs=AOn4CLC6Rpo55uDKJbVAUWbxpzx56kTmtA"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              Donuts tried include Peanut Butter Kreme, New York Cheesecake, Powdered Blueberry, Red Velvet and many more
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/39/",
+                state: {
+                  data : data[38],
+                  videoId : "Tera Ban Jaunga Mix  🔥 Toyota Innova Crysta"
+                },
+              }}  
+            className="link-1">
+            <h3>Tera Ban Jaunga Mix  🔥 Toyota Innova Crysta</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/vamvFRENuZk/mqdefault_6s.webp?du=3000&sqp=CJHj15QG&rs=AOn4CLAHpiWjvvRcnpnbzyFSc-nggQZaNw"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Driving through traffic in my Innova Crysta, listening to some good music, and sharing good driving tips !
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/40/",
+                state: {
+                  data : data[39],
+                  videoId : "Selecting the Best Fruit and Vegetables"
+                },
+              }}   
+            className="link-1">
+            <h3>Selecting the Best Fruit and Vegetables</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/mB3qc-mexsc/mqdefault_6s.webp?du=3000&sqp=CPDP15QG&rs=AOn4CLAhV4oPrOBQ-Z8Gzo-LEXPTueWlWQ"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Watch as Chef Jimmy Schmidt teaches how to select foods that are in season. 
+              These videos are for demonstration purposes. 
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/41/",
+                state: {
+                  data : data[40],
+                  videoId : "Top 100 Modern Wooden Sofa Set Design Ideas 2022"
+                },
+              }}  
+            className="link-1">
+            <h3>Top 100 Modern Wooden Sofa Set Design Ideas 2022</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/jff6HE9Otys/mqdefault_6s.webp?du=3000&sqp=CM-z15QG&rs=AOn4CLA4ZeoM9phnFvJoIkJvkYA6BgzfRw"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              Modern Wooden Sofa Set Design Ideas | Living Room Sofa Design | 
+              living room furniture design ideas by Decor Puzzle
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/42/",
+                state: {
+                  data : data[41],
+                  videoId : "Raymour & Flanigan Furniture and Mattress Store Bed Room And Living Set 2022"
+                },
+              }}  
+            className="link-1">
+            <h3>Raymour & Flanigan Furniture and Mattress Store Bed Room And Living Set 2022</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/ZjHle0jsgmg/mqdefault_6s.webp?du=3000&sqp=CPjY15QG&rs=AOn4CLCGpnN9DVfE-Es075AgrLheBYBbHA"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              A fresh collection of Raymour & Flanigan sofa sets for the modern home environment !
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/43/",
+                state: {
+                  data : data[42],
+                  videoId : "SPARETIME : A road cycling video"
+                },
+              }}  
+            className="link-1">
+            <h3>SPARETIME : A road cycling video</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/TrksXthaMz8/mqdefault_6s.webp?du=3000&sqp=CPa915QG&rs=AOn4CLCX9iKf4C6903MrEpZO1W3GHP1KBA"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              "Your spare time is where your dreams and goals come true.
+              We work hard to earn sparetime. Don't waste it doing nothing." 
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/44/",
+                state: {
+                  data : data[43],
+                  videoId : "Mr Bean - ride on the car roof"
+                },
+              }}   
+            className="link-1">
+            <h3>Mr Bean - ride on the car roof</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/dNn4YFvQLMI/mqdefault_6s.webp?du=3000&sqp=CK7Z15QG&rs=AOn4CLC6vfvESzaEOaV7n-zT8TGyuNnVOg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Mr. Bean gets a little too carried away in the DIY store, leading to a very awkward drive home.
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+
+
+          <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/45/",
+                state: {
+                  data : data[44],
+                  videoId : "Veg Mayo Sandwich - Lunch Box Recipe"
+                },
+              }}  
+            className="link-1">
+            <h3>Veg Mayo Sandwich - Lunch Box Recipe</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/rASgAQYZpFo/mqdefault_6s.webp?du=3000&sqp=CMSz15QG&rs=AOn4CLAqJufJ_SVFnBlClkzh8TQGL9urzw"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              Follow this simple homecooking recipe to make a delicious Veg Mayo Sandwich with 
+              veggy toppings and spoonful of Mayo !
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/46/",
+                state: {
+                  data : data[45],
+                  videoId : "Yun Hi Chala Chal [Full Song] | Swades"
+                },
+              }}  
+            className="link-1">
+            <h3>Yun Hi Chala Chal [Full Song] | Swades</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/LuTy9KGKNbA/mqdefault_6s.webp?du=3000&sqp=CPDY15QG&rs=AOn4CLCTPsprN9PT3B7PTwIDleSQfuCugg"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              Song - Yun Hi Chala Chal,
+              Movie - Swades,
+              Singer - Udit Narayan, Hariharan, Kailash Kher,
+              Lyricist - Javed Akhtar,
+              Music - A.R. Rahman,
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/47/",
+                state: {
+                  data : data[46],
+                  videoId : "vegetables in the butter, Recipe #8, vegetables"
+                },
+              }}  
+            className="link-1">
+            <h3>vegetables in the butter, Recipe #8, vegetables</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/9Onjrbphdxw/mqdefault_6s.webp?du=3000&sqp=CIzG15QG&rs=AOn4CLBPA1q9Pk_55o48uwC8E_A5WSG5iw"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+                 A simple recipe to make a good side dish consisiting of buttered vegetables, nutricious and delicious !
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/48/",
+                state: {
+                  data : data[47],
+                  videoId : "We Tried Star Chefs Chocolate Cake Recipes"
+                },
+              }}   
+            className="link-1">
+            <h3>We Tried Star Chefs Chocolate Cake Recipes</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/kAgPn_4gGTY/mqdefault_6s.webp?du=3000&sqp=CNbQ15QG&rs=AOn4CLCKOgc3B0AD6KWIdkrMGHkEKXFI0A"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              There's nothing better than a rich, decadent slice of chocolate cake. Join us as we critique an assortment of famous cholocate cakes!
+              </p>
+              </Link>
+            </div>
+
+          </div>
+
+
+
+
+
+
+          <div className="row-6">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/49/",
+                state: {
+                  data : data[48],
+                  videoId : "VARANASI - Cinematic travel film (Sony A7iii)"
+                },
+              }}  
+            className="link-1">
+            <h3>VARANASI - Cinematic travel film (Sony A7iii)</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/1udJsv1VcII/mqdefault_6s.webp?du=3000&sqp=CNjf15QG&rs=AOn4CLA0wu893oLMiXbG9Qp3ZWV7H-R40g"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              A cinematic travel film to Varanasi, 
+              to see a culture which has been preserved for thousands of years.
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/50/",
+                state: {
+                  data : data[49],
+                  videoId : "This Plane Could Even Land Itself: Why Did The L-1011 Fail?"
+                },
+              }}  
+            className="link-1">
+            <h3>This Plane Could Even Land Itself: Why Did The L-1011 Fail?</h3>
+            <img 
+              src="https://i.ytimg.com/an_webp/jkFYD7R_Xig/mqdefault_6s.webp?du=3000&sqp=CKC615QG&rs=AOn4CLAgRuP_ZveDyEpJ6kCgpDeZ-vj_eg"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              The L-1011  nearly bankrupted Lockheed, who incurred billions of dollars in losses, 
+              and only ever sold half the TriStars it would need  just to break even financially. 
+              </p>
+              </Link>
+            </div>
+
+           
+
+            
+
+          </div>
+
+          
+
+
         </div>
       
       </div>  
       <footer className="footer">
-        Copyright 2021, Galacticos 
+        Developed in 2022, by Kaustubha DS, Kaushik K, Manas P S and Manish M 
       </footer>
     </div>
     

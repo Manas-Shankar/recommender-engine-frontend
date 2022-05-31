@@ -6,6 +6,8 @@ import YouTube from 'react-youtube';
 import ReactPlayer from 'react-player'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, listAll,getDownloadURL,getMetadata } from "firebase/storage";
 
 export default function VideoView(props){
 
@@ -19,15 +21,49 @@ export default function VideoView(props){
     const [finished,setFinished] = React.useState(false);
     const [recommended, setRecommended] = React.useState("");
     const [Class,setClass] = React.useState("");
+    const [videodata,setVideodata] = React.useState([]);
     const url = "https://recommender-engine.herokuapp.com/recommend";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAH1O6NBX0jTktS6yEsPKNTzOtjvm5x5rQ",
+      authDomain: "multimodal-recommender-d-4e69c.firebaseapp.com",
+      projectId: "multimodal-recommender-d-4e69c",
+      storageBucket: "multimodal-recommender-d-4e69c.appspot.com",
+      messagingSenderId: "1008583322580",
+      appId: "1:1008583322580:web:9cdcf9cbcaa83cad2f4441",
+      measurementId: "G-X9KST56JH3"
+    };
 
     React.useEffect(() => {
      changeID(location.state.videoId)
-     console.log(location.state)
-      changeEmbedID(props.match.params.embedId)
-      setList(location.state.data.detected_objects)
-      setLink(location.state.data.link)
-      console.log(link, objList);
+     setVideodata(location.state.data)
+    //  const appFirebase = initializeApp(firebaseConfig);
+    //  const storage = getStorage(appFirebase);
+    //  const storageRef = ref(storage,"/VIDEOS/");
+    
+
+      console.log(location.state)
+
+      
+      // listAll(storageRef)
+      // .then((res) => {
+      //   res.items.forEach((itemref)=>{
+      //    getMetadata(itemref).then((metadata)=>{
+      //      console.log(metadata.name)
+      //      if(metadata.name === videoID)
+      //      {
+      //        getDownloadURL(itemref).then((url)=>{
+      //          setLink(url)
+      //        })
+      //      }
+          
+      //    })
+      //   })
+      //     })
+      // changeEmbedID(props.match.params.embedId)
+      // setList(location.state.data.detected_objects)
+      // setLink(location.state.data.link)
+      // console.log(link, objList);
       
   }, [])
 
@@ -61,6 +97,7 @@ export default function VideoView(props){
       }
 
       const onFinish = ()=>{
+        console.log(objList)
         axios.post(url,objList).then((res)=>{
           console.log(res);
           setClass(res.data.class)
