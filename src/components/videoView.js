@@ -15,8 +15,8 @@ export default function VideoView(props){
     const [embedID,changeEmbedID] = React.useState("");
     const [link,setLink] = React.useState("");
     const [company,setCompany] =  React.useState("");
-    const [Detected_objects, setList] = React.useState("");
-    const [Word_frequency,setWord] = React.useState("");
+    const [Detected_objects, setList] = React.useState({});
+    const [Word_frequency,setWord] = React.useState({});
     const [logIn,showLogin] = React.useState(false);
     const location = useLocation();
     const [signUp,showSignUp] = React.useState(false);
@@ -24,7 +24,7 @@ export default function VideoView(props){
     const [recommended, setRecommended] = React.useState("");
     const [Class,setClass] = React.useState("");
     const [videodata,setVideodata] = React.useState([]);
-    const url = "https://recommender-final-year.herokuapp.com/recommend";
+    const url = "https://recommender-intellitube.herokuapp.com/recommend";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAH1O6NBX0jTktS6yEsPKNTzOtjvm5x5rQ",
@@ -39,30 +39,12 @@ export default function VideoView(props){
     React.useEffect(() => {
      changeID(location.state.videoId)
      setVideodata(location.state.data)
-    //  const appFirebase = initializeApp(firebaseConfig);
-    //  const storage = getStorage(appFirebase);
-    //  const storageRef = ref(storage,"/VIDEOS/");
     
 
       console.log(location.state)
 
       
-      // listAll(storageRef)
-      // .then((res) => {
-      //   res.items.forEach((itemref)=>{
-      //    getMetadata(itemref).then((metadata)=>{
-      //      console.log(metadata.name)
-      //      if(metadata.name === videoID)
-      //      {
-      //        getDownloadURL(itemref).then((url)=>{
-      //          setLink(url)
-      //        })
-      //      }
-          
-      //    })
-      //   })
-      //     })
-      // changeEmbedID(props.match.params.embedId)
+      
       let obj1 = {}, obj2 = {};
       eval('obj1='+location.state.data.objects_detected);
       eval('obj2='+location.state.data.word_freq);
@@ -71,6 +53,11 @@ export default function VideoView(props){
       setList(obj1)
       setLink(location.state.data.link)
       setWord(obj2)
+
+
+      
+        
+      
       
       
       
@@ -106,7 +93,10 @@ export default function VideoView(props){
       }
 
       const onFinish = ()=>{
-        
+        setFinished(true);
+      }
+
+      const onMid = ()=>{
         let final_obj  = {Detected_objects,Word_frequency}
         
         console.log(final_obj)
@@ -119,7 +109,10 @@ export default function VideoView(props){
           console.log(Class,recommended);
   
         })
-        setFinished(true);
+      }
+
+      const doNothing = ()=>{
+        
       }
    
 
@@ -169,6 +162,7 @@ export default function VideoView(props){
                 height="99%"
                 controls 
                 onEnded = {()=> {onFinish()}}
+                onProgress = {({playedSeconds})=>{ (playedSeconds > 5  && playedSeconds < 6) ? onMid() : doNothing() }}
                 />
 
             </div>   
