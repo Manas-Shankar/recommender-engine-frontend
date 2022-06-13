@@ -18,7 +18,7 @@ body::-webkit-scrollbar
 
 body::-webkit-scrollbar-thumb
 {
-  background-color: #15133C;
+  background-color: #f35959;
   /* border: 2px solid #555555; */
 }
 
@@ -76,7 +76,6 @@ body{
 
 .videos-container{
   width:93vw;
-  
   margin:auto;
   margin-top:8rem;
   padding-bottom:50px;

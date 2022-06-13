@@ -1,3 +1,8 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Rubik&display=swap');
+
+
 .title-video{
     font-size:40px;
     padding:0px;
@@ -38,15 +43,42 @@
   .container{
       margin-top:13vh;
       font-size:30px;
-      height:90vh;
+      height:78vh;
       padding:20px;
   }
+
+  .styledTable {
+    border:5px solid black; 
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    
+    margin-bottom: 20px;
+    margin-left:20%;
+    width:60vw;
+    background-color: #f35959;
+    
+}
+
+
+.styledTable thead td{
+  text-align: center;
+  padding:10px;
+  border:5px solid black;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.table-field{
+  font-weight: 700;
+}
+
+
 
   .player-area{
     /* border:1px solid black; */
     font-family: 'Rubik', sans-serif;
     background-color: #F24C4C;
-    height:87vh;
+    height:82vh;
     width:80vw;
     margin:auto;
     border-radius:10px;
@@ -93,12 +125,6 @@
     
   }
 
-  .rec{
-    /* border:1px solid black;   */
-    width: 80%;
-    margin:auto;
-    margin-top:20px;
-    text-align:center;
-    font-weight:bold;
-    font-size: 40px;
-  }
+.info-container{
+  height:145vh;
+}

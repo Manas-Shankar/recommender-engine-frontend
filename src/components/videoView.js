@@ -9,10 +9,12 @@ import axios from 'axios';
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, listAll,getDownloadURL,getMetadata } from "firebase/storage";
 
+
 export default function VideoView(props){
 
     const [videoID,changeID] = React.useState("");
     const [embedID,changeEmbedID] = React.useState("");
+
     const [link,setLink] = React.useState("");
     const [company,setCompany] =  React.useState("");
     const [Detected_objects, setList] = React.useState({});
@@ -21,9 +23,17 @@ export default function VideoView(props){
     const location = useLocation();
     const [signUp,showSignUp] = React.useState(false);
     const [finished,setFinished] = React.useState(false);
+
     const [recommended, setRecommended] = React.useState("");
     const [Class,setClass] = React.useState("");
     const [videodata,setVideodata] = React.useState([]);
+
+    const [obj_det_freq,setFreq] = React.useState(0);
+    const [word_freq,setWordFreq] = React.useState(0);
+    const [r1,setr1] = React.useState(0);
+    const [r2,setr2] = React.useState(0);
+    const [final_r,setFinalr] = React.useState(0);
+
     const url = "https://recommender-intellitube.herokuapp.com/recommend";
 
     const firebaseConfig = {
@@ -54,13 +64,6 @@ export default function VideoView(props){
       setLink(location.state.data.link)
       setWord(obj2)
 
-
-      
-        
-      
-      
-      
-      
   }, [])
 
     const handleOpen = (e)=>{
@@ -106,6 +109,17 @@ export default function VideoView(props){
           setClass(res.data.class)
           setRecommended(res.data.link)
           setCompany(res.data.company)
+          setFreq(res.data.obj_det_freq)
+          setWordFreq(res.data.word_freq)
+
+          let R1 = res.data.r1_score;
+          let R2 = res.data.r2_score;
+          let finalR = res.data.final_r;
+          
+          setr1(parseFloat(R1).toPrecision(3))
+          setr2(parseFloat(R2).toPrecision(3))
+          setFinalr(parseFloat(finalR).toPrecision(3))
+
           console.log(Class,recommended);
   
         })
@@ -171,7 +185,44 @@ export default function VideoView(props){
         </div>
 
                 { finished && 
+                  <div className="info-container">
+
                   <div className="container">
+
+                  <table class="styledTable">
+                    <thead>
+                      <td >Class of the recommended ad</td>
+                      <td className="table-field">{Class}</td>
+                    </thead>
+
+                    <thead>
+                      <td >Oject frequency of {Class}</td>
+                      <td className="table-field"> {obj_det_freq}</td>
+                    </thead>
+
+                    <thead>
+                      <td >Word frquency of {Class}</td>
+                      <td className="table-field">{word_freq}</td>
+                    </thead>
+
+                    <thead>
+                      <td>Recommender r1 (Obj-det) score for {Class}</td>
+                      <td className="table-field">{r1}</td>
+                    </thead>
+
+                    <thead>
+                      <td>Recommender r2 (speech-to-text) score for {Class}</td>
+                      <td className="table-field">{r2}</td>
+                    </thead>
+
+
+                    <thead>
+                      <td>final_r score for {Class}</td>
+                      <td className="table-field"> {final_r}</td>
+                    </thead>
+ 
+                  </table>
+                 
                   <div className="player-area">
                   <h2 className="player-title">Recommended Advert : {company}</h2> 
                   <div className="main-player">
@@ -191,12 +242,17 @@ export default function VideoView(props){
                 />
 
                 </div> 
-                <p className="rec">Class of the recommended ad: {Class}</p>
+                
                   
                 </div>
         
                 </div>
+                </div>
                 }
+
+                
+      
+   
             
         </div>
     );
