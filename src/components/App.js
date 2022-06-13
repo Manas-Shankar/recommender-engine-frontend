@@ -119,7 +119,7 @@ function App(){
           <div className="row-1">
 
 
-          <div className="card">
+          {/* <div className="card">
             <Link 
             to={{
             pathname: "/video/1/",
@@ -139,7 +139,7 @@ function App(){
             
               </p>
               </Link>
-            </div>
+            </div> */}
 
 
             <div className="card">
@@ -189,66 +189,6 @@ function App(){
               </Link>
             </div>
 
-            
-
-            <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/4/",
-                state: {
-                  data : data[3],
-                  videoId : "Best of Michael Scott - The Office US | Comedy Bites"
-                },
-              }} 
-            className="link-1">
-            <h3>Best of Michael Scott - The Office US | Comedy Bites</h3>
-            <img 
-            src="http://img.youtube.com/vi/B3_UM8xxg5E/mqdefault.jpg"
-            className="img-1"
-            alt=""
-              />
-              <p>
-              From "The Office", an American television mockumentary sitcom, 
-              created as an adaptation of the British series of the same name.
-              
-               
-              </p>
-              </Link>
-            </div>
-
-            
-
-          </div>
-
-
-
-
-
-
-          <div className="row-2">
-
-          <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/5/",
-                state: {
-                  data : data[4],
-                  videoId : "Library  Special Episode | Classic MrBean"
-                },
-              }} 
-            className="link-1">
-            <h3>Library  Special Episode | Classic MrBean</h3>
-            <img 
-              src="http://img.youtube.com/vi/SpF5EZy9ZOY/mqdefault.jpg"
-                className="img-1"
-                alt=""
-              />
-              <p> 
-              Mr. Bean visits a rare book library, and tries to copy a page of a book by shading on tracing paper, but things go wrong ! 
-              </p>
-              </Link>
-            </div>
-
 
             <div className="card">
             <Link to={{
@@ -270,6 +210,7 @@ function App(){
               </p>
               </Link>
             </div>
+
 
 
             <div className="card">
@@ -317,7 +258,32 @@ function App(){
               </Link>
             </div>
 
-           
+            
+
+            {/* <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/4/",
+                state: {
+                  data : data[3],
+                  videoId : "Best of Michael Scott - The Office US | Comedy Bites"
+                },
+              }} 
+            className="link-1">
+            <h3>Best of Michael Scott - The Office US | Comedy Bites</h3>
+            <img 
+            src="http://img.youtube.com/vi/B3_UM8xxg5E/mqdefault.jpg"
+            className="img-1"
+            alt=""
+              />
+              <p>
+              From "The Office", an American television mockumentary sitcom, 
+              created as an adaptation of the British series of the same name.
+              
+               
+              </p>
+              </Link>
+            </div> */}
 
             
 
@@ -326,29 +292,31 @@ function App(){
 
 
 
-          <div className="row-3">
 
-          <div className="card">
+
+          <div className="row-2">
+
+          {/* <div className="card">
             <Link 
             to={{
-            pathname: "/video/9/",
+            pathname: "/video/5/",
                 state: {
-                  data : data[8],
-                  videoId : "Blowdrying Tutorial | Mens Hairstyle Tutorial 2022"
+                  data : data[4],
+                  videoId : "Library  Special Episode | Classic MrBean"
                 },
-              }}  
+              }} 
             className="link-1">
-            <h3>Blowdrying Tutorial | Mens Hairstyle Tutorial 2022</h3>
+            <h3>Library  Special Episode | Classic MrBean</h3>
             <img 
-              src="http://img.youtube.com/vi/tqXDa7k3sUc/mqdefault.jpg"
+              src="http://img.youtube.com/vi/SpF5EZy9ZOY/mqdefault.jpg"
                 className="img-1"
                 alt=""
               />
-              <p>You guys asked for it so here it is! A men's hairstyle tutorial teaching you how to use a hair dryer / blow dryer properly.  
-              
+              <p> 
+              Mr. Bean visits a rare book library, and tries to copy a page of a book by shading on tracing paper, but things go wrong ! 
               </p>
               </Link>
-            </div>
+            </div> */}
 
             <div className="card">
             <Link 
@@ -418,18 +386,8 @@ function App(){
               </p>
               </Link>
             </div>
-
-         
-
-         
-
-       </div>
-
-
-
-       <div className="row-4">
-
-       <div className="card">
+            
+            <div className="card">
          <Link 
          to={{
             pathname: "/video/13/",
@@ -446,7 +404,7 @@ function App(){
              alt=""
            />
            <p>
-           Upgraded my Dream Desk Setup for 2020 with improvements for working from home, gaming and relaxing.
+           Upgraded my Dream Desk Setup for 2020 with improvements for working from home, and gaming.
            </p>
            </Link>
          </div>
@@ -472,7 +430,35 @@ function App(){
            </p>
            </Link>
          </div>
-            
+
+          </div>
+
+
+
+
+          <div className="row-3">
+
+          {/* <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/9/",
+                state: {
+                  data : data[8],
+                  videoId : "Blowdrying Tutorial | Mens Hairstyle Tutorial 2022"
+                },
+              }}  
+            className="link-1">
+            <h3>Blowdrying Tutorial | Mens Hairstyle Tutorial 2022</h3>
+            <img 
+              src="http://img.youtube.com/vi/tqXDa7k3sUc/mqdefault.jpg"
+                className="img-1"
+                alt=""
+              />
+              <p>You guys asked for it so here it is! A men's hairstyle tutorial teaching you how to use a hair dryer / blow dryer properly.  
+              
+              </p>
+              </Link>
+            </div> */}
 
             <div className="card">
             <Link 
@@ -519,15 +505,7 @@ function App(){
               </Link>
             </div>
 
-           
-
-          </div>
-
-
-
-
-          <div className="row-5">
-
+              
           <div className="card">
             <Link 
             to={{
@@ -577,31 +555,6 @@ function App(){
             <div className="card">
             <Link 
             to={{
-            pathname: "/video/19/",
-                state: {
-                  data : data[19],
-                  videoId : "Hotdog cooking tutorial"
-                },
-              }}  
-            className="link-1">
-            <h3>Hotdog cooking tutorial</h3>
-            <img 
-              src="http://img.youtube.com/vi/ECrnU85IE6U/mqdefault.jpg"
-                className="img-2"
-                alt=""
-              />
-              <p className="p1">
-              I made a famous street food in Korea, corn dogs.
-              (In Korea, it is called a hot dog.)
-              There are a lot of different toppings, so I made three.
-              It's really crispy and really tasty.
-              </p>
-              </Link>
-            </div>
-
-            <div className="card">
-            <Link 
-            to={{
             pathname: "/video/20/",
                 state: {
                   data : data[20],
@@ -620,15 +573,14 @@ function App(){
               </p>
               </Link>
             </div>
-            
 
-            
+       </div>
 
-          </div>
 
-          <div className="row-5">
 
-            <div className="card">
+       <div className="row-4">
+
+       <div className="card">
             <Link 
             to={{
             pathname: "/video/21/",
@@ -649,30 +601,7 @@ function App(){
               </p>
               </Link>
             </div>
-
-            <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/22/",
-                state: {
-                  data : data[22],
-                  videoId : "At the Airport"
-                },
-              }}  
-            className="link-1">
-            <h3>At the Airport</h3>
-            <img 
-              src="http://img.youtube.com/vi/jiBHZ_rqHB8/mqdefault.jpg"
-                className="img-2"
-                alt=""
-              />
-              <p className="p1">
-              Learn English words and phrases you can use at the airport when checking in, 
-              going through security and while traveling by plane.
-              </p>
-              </Link>
-            </div>
-
+       
             <div className="card">
             <Link 
             to={{
@@ -714,38 +643,6 @@ function App(){
               />
               <p> 
               Learn about the English names for glasses, tumblers, cups, mugs, pitchers, jars, etc.
-              </p>
-              </Link>
-            </div>
-
-            
-
-            
-
-          </div>
-          <div className="row-5">
-
-            
-
-          <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/25/",
-                state: {
-                  data : data[25],
-                  videoId : "Finding The Best Dominos Pizza : The Urban Guide"
-                },
-              }}  
-            className="link-1">
-            <h3>Finding The Best Dominos Pizza : The Urban Guide</h3>
-            <img 
-              src="http://img.youtube.com/vi/bEIeONZ0CpI/mqdefault.jpg"
-                className="img-1"
-                alt=""
-              />
-              <p className="p1">
-              You wanted Antil & Rohit to try all the Domino's ke non-veg pizzas. 
-              Watch to find out Antil & Rohit's Top 3 choices !
               </p>
               </Link>
             </div>
@@ -796,6 +693,36 @@ function App(){
               </Link>
             </div>
 
+          </div>
+
+
+          <div className="row-5">
+
+
+            {/* <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/19/",
+                state: {
+                  data : data[19],
+                  videoId : "Hotdog cooking tutorial"
+                },
+              }}  
+            className="link-1">
+            <h3>Hotdog cooking tutorial</h3>
+            <img 
+              src="http://img.youtube.com/vi/ECrnU85IE6U/mqdefault.jpg"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              I made a famous street food in Korea, corn dogs.
+              (In Korea, it is called a hot dog.)
+              There are a lot of different toppings, so I made three.
+              It's really crispy and really tasty.
+              </p>
+              </Link>
+            </div> */}
             <div className="card">
             <Link 
             to={{
@@ -813,20 +740,13 @@ function App(){
                 alt=""
               />
               <p> 
-              In this video on simple dining etiquettes, 
-              I take you through the British method of using a fork and knife which is what we use in India.
+              In this simple dining etiquettes video, 
+              I take you through the British method of using a fork and knife, used in India.
               </p>
               </Link>
             </div>
 
-          </div>
-
-
-
-
-          <div className="row-5">
-
-          <div className="card">
+            <div className="card">
             <Link 
             to={{
             pathname: "/video/29/",
@@ -887,71 +807,11 @@ function App(){
                 alt=""
               />
               <p> 
-              From the movie "Zindagi Na Milegi Dobara" 
-              starring Hrithik Roshan, Kartina Kaif, Farhan Akhtar, Abhey Deol and Kalki Koechin
+              From "Zindagi Na Milegi Dobara".Hrithik Roshan, Kartina Kaif, Farhan Akhtar, Abhey Deol, Kalki Koechin
               </p>
               </Link>
             </div>
-
-            <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/32/",
-                state: {
-                  data : data[32],
-                  videoId : "How Japan’s High-Speed Bullet Train Works"
-                },
-              }}  
-            className="link-1">
-            <h3>How Japan’s High-Speed Bullet Train Works</h3>
-            <img 
-              src="http://img.youtube.com/vi/oL-AOAOSTFw/mqdefault.jpg"
-                className="img-1"
-                alt=""
-              />
-              <p className="p1">
-              Learn some of the high-tech engineering behind the Shinkansen, and how the trains are kept so precisely on schedule.
-              </p>
-              </Link>
-            </div>
-
-
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-          <div className="row-5">
-
-          <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/33/",
-                state: {
-                  data : data[33],
-                  videoId : "How to Choose Fresh Fruits and Vegetables From the Market"
-                },
-              }}  
-            className="link-1">
-            <h3>How to Choose Fresh Fruits and Vegetables From the Market</h3>
-            <img 
-              src="http://img.youtube.com/vi/dtP8pTwQgc8/mqdefault.jpg"
-                className="img-2"
-                alt=""
-              />
-              <p className="p1">
-              How to identify fresh and healthy fruits and vegetables in the Indian market every single time?
-              </p>
-              </Link>
-            </div>
-
+            
             <div className="card">
             <Link 
              to={{
@@ -969,12 +829,19 @@ function App(){
                 alt=""
               />
               <p className="p1">
-              Musical Chairs can be played with many games, developing strategic thinking, listening to directions and social comfort.
+              Musical Chairs can be played with many games, developing strategic thinking and listening to directions.
               </p>
               </Link>
             </div>
+            
 
-            <div className="card">
+            
+
+          </div>
+
+          <div className="row-5">
+
+          <div className="card">
             <Link 
              to={{
             pathname: "/video/35/",
@@ -1021,19 +888,7 @@ function App(){
               </Link>
             </div>
 
-          </div>
-
-
-
-
-
-
-
-
-
-          <div className="row-5">
-
-          <div className="card">
+            <div className="card">
             <Link 
             to={{
             pathname: "/video/37/",
@@ -1078,88 +933,6 @@ function App(){
               </Link>
             </div>
 
-
-            <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/39/",
-                state: {
-                  data : data[39],
-                  videoId : "Paris to Milan by TGV train from €29 - video guide"
-                },
-              }}  
-            className="link-1">
-            <h3>Paris to Milan by TGV train from €29 - video guide</h3>
-            <img 
-              src="http://img.youtube.com/vi/B09t_WJz_mM/mqdefault.jpg"
-                className="img-1"
-                alt=""
-              />
-              <p> 
-              A journey from Paris to Turin & Milan by TGV high-speed train, 
-              showing the train interior & exterior, the scenery and food. 
-              </p>
-              </Link>
-            </div>
-
-            <div className="card">
-            <Link 
-            to={{
-            pathname: "/video/40/",
-                state: {
-                  data : data[40],
-                  videoId : "Ordered ENTIRE Krispy Kreme DONUT MENU"
-                },
-              }}  
-            className="link-1">
-            <h3>Ordered ENTIRE Krispy Kreme DONUT MENU</h3>
-            <img 
-              src="http://img.youtube.com/vi/f-XFQmr5eV8/mqdefault.jpg"
-                className="img-2"
-                alt=""
-              />
-              <p className="p1">
-              Donuts tried include Peanut Butter Kreme, New York Cheesecake, Powdered Blueberry, Red Velvet and many more
-              </p>
-              </Link>
-            </div>
-
-            
-
-            
-
-          </div>
-
-
-
-
-
-
-          <div className="row-5">
-
-          <div className="card">
-            <Link 
-             to={{
-            pathname: "/video/41/",
-                state: {
-                  data : data[41],
-                  videoId : "Selecting the Best Fruit and Vegetables"
-                },
-              }}   
-            className="link-1">
-            <h3>Selecting the Best Fruit and Vegetables</h3>
-            <img 
-              src="http://img.youtube.com/vi/N6cDUYVu7d4/mqdefault.jpg"
-                className="img-1"
-                alt=""
-              />
-              <p className="p1">
-              Watch as Chef Jimmy Schmidt teaches how to select foods that are in season. 
-              These videos are for demonstration purposes. 
-              </p>
-              </Link>
-            </div>
-
             <div className="card">
             <Link 
             to={{
@@ -1182,6 +955,60 @@ function App(){
               </Link>
             </div>
 
+            {/* <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/22/",
+                state: {
+                  data : data[22],
+                  videoId : "At the Airport"
+                },
+              }}  
+            className="link-1">
+            <h3>At the Airport</h3>
+            <img 
+              src="http://img.youtube.com/vi/jiBHZ_rqHB8/mqdefault.jpg"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              Learn English words and phrases you can use at the airport when checking in, 
+              going through security and while traveling by plane.
+              </p>
+              </Link>
+            </div> */}
+
+          </div>
+
+
+
+
+          <div className="row-5">
+
+            
+
+          {/* <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/25/",
+                state: {
+                  data : data[25],
+                  videoId : "Finding The Best Dominos Pizza : The Urban Guide"
+                },
+              }}  
+            className="link-1">
+            <h3>Finding The Best Dominos Pizza : The Urban Guide</h3>
+            <img 
+              src="http://img.youtube.com/vi/bEIeONZ0CpI/mqdefault.jpg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              You wanted Antil & Rohit to try all the Domino's ke non-veg pizzas. 
+              Watch to find out Antil & Rohit's Top 3 choices !
+              </p>
+              </Link>
+            </div> */}
             <div className="card">
             <Link 
             to={{
@@ -1222,25 +1049,13 @@ function App(){
                 alt=""
               />
               <p className="p1">
-              The L-1011  nearly bankrupted Lockheed, who incurred billions of dollars in losses, 
-              and only ever sold half the TriStars it would need  just to break even financially. 
+              The L-1011 despite being a technological marvel, nearly bankrupted Lockheed, 
+              selling half the TriStars it would need  just to break even financially. 
               </p>
               </Link>
             </div>
             
-
-            
-
-          </div>
-
-
-
-
-
-
-          <div className="row-5">
-
-          <div className="card">
+            <div className="card">
             <Link 
             to={{
             pathname: "/video/45/",
@@ -1312,6 +1127,153 @@ function App(){
               </Link>
             </div>
 
+          </div>
+
+
+
+
+          {/* <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/32/",
+                state: {
+                  data : data[32],
+                  videoId : "How Japan’s High-Speed Bullet Train Works"
+                },
+              }}  
+            className="link-1">
+            <h3>How Japan’s High-Speed Bullet Train Works</h3>
+            <img 
+              src="http://img.youtube.com/vi/oL-AOAOSTFw/mqdefault.jpg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Learn some of the high-tech engineering behind the Shinkansen, and how the trains are kept so precisely on schedule.
+              </p>
+              </Link>
+            </div>
+
+
+          </div> */}
+
+          {/* <div className="row-5">
+
+          <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/33/",
+                state: {
+                  data : data[33],
+                  videoId : "How to Choose Fresh Fruits and Vegetables From the Market"
+                },
+              }}  
+            className="link-1">
+            <h3>How to Choose Fresh Fruits and Vegetables From the Market</h3>
+            <img 
+              src="http://img.youtube.com/vi/dtP8pTwQgc8/mqdefault.jpg"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              How to identify fresh and healthy fruits and vegetables in the Indian market every single time?
+              </p>
+              </Link>
+            </div>
+
+          </div> */}
+
+
+          {/* <div className="row-5">
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/39/",
+                state: {
+                  data : data[39],
+                  videoId : "Paris to Milan by TGV train from €29 - video guide"
+                },
+              }}  
+            className="link-1">
+            <h3>Paris to Milan by TGV train from €29 - video guide</h3>
+            <img 
+              src="http://img.youtube.com/vi/B09t_WJz_mM/mqdefault.jpg"
+                className="img-1"
+                alt=""
+              />
+              <p> 
+              A journey from Paris to Turin & Milan by TGV high-speed train, 
+              showing the train interior & exterior, the scenery and food. 
+              </p>
+              </Link>
+            </div>
+
+            <div className="card">
+            <Link 
+            to={{
+            pathname: "/video/40/",
+                state: {
+                  data : data[40],
+                  videoId : "Ordered ENTIRE Krispy Kreme DONUT MENU"
+                },
+              }}  
+            className="link-1">
+            <h3>Ordered ENTIRE Krispy Kreme DONUT MENU</h3>
+            <img 
+              src="http://img.youtube.com/vi/f-XFQmr5eV8/mqdefault.jpg"
+                className="img-2"
+                alt=""
+              />
+              <p className="p1">
+              Donuts tried include Peanut Butter Kreme, New York Cheesecake, Powdered Blueberry, Red Velvet and many more
+              </p>
+              </Link>
+            </div>
+
+          </div> */}
+
+
+
+
+
+
+          {/* <div className="row-5">
+
+          <div className="card">
+            <Link 
+             to={{
+            pathname: "/video/41/",
+                state: {
+                  data : data[41],
+                  videoId : "Selecting the Best Fruit and Vegetables"
+                },
+              }}   
+            className="link-1">
+            <h3>Selecting the Best Fruit and Vegetables</h3>
+            <img 
+              src="http://img.youtube.com/vi/N6cDUYVu7d4/mqdefault.jpg"
+                className="img-1"
+                alt=""
+              />
+              <p className="p1">
+              Watch as Chef Jimmy Schmidt teaches how to select foods that are in season. 
+              These videos are for demonstration purposes. 
+              </p>
+              </Link>
+            </div>
+
+          </div> */}
+
+
+
+
+
+
+          {/* <div className="row-5">
+
             <div className="card">
             <Link 
             to={{
@@ -1338,18 +1300,14 @@ function App(){
               </Link>
             </div>
 
-            
-
-           
-
-          </div>
+          </div> */}
 
 
 
 
 
 
-          <div className="row-6">
+          {/* <div className="row-6">
 
           <div className="card">
             <Link 
@@ -1373,13 +1331,7 @@ function App(){
               </Link>
             </div>
 
-            
-
-           
-
-            
-
-          </div>
+          </div> */}
 
           
 
