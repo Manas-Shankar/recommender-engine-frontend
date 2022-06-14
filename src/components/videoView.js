@@ -201,7 +201,7 @@ export default function VideoView(props){
                     </thead>
 
                     <thead>
-                      <td >Word frquency of {Class}</td>
+                      <td >Word frequency of {Class}</td>
                       <td className="table-field">{word_freq}</td>
                     </thead>
 
