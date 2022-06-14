@@ -214,6 +214,7 @@ body{
   margin:auto;
   margin-top:5vh;
   border-top:2px solid #ed1212;
+  font-weight: bold;
   padding:20px;
   font-size:20px;
   z-index:1;

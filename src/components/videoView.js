@@ -236,7 +236,7 @@ export default function VideoView(props){
                 url= {recommended}
                 className='react-player'
                 width="99%"
-                height="99%"
+                height="100%"
                 controls 
                 playing={true}
                 />

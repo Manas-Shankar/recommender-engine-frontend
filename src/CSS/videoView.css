@@ -78,7 +78,7 @@
     /* border:1px solid black; */
     font-family: 'Rubik', sans-serif;
     background-color: #F24C4C;
-    height:82vh;
+    height:83vh;
     width:80vw;
     margin:auto;
     border-radius:10px;
@@ -100,7 +100,7 @@
     background-color: #fbd0d0;
     width:95%;
     margin:auto;
-    height:65vh;
+    height:61vh;
     margin-top:0px;
     border-radius: 10px;
     margin-top:20px;
@@ -126,5 +126,5 @@
   }
 
 .info-container{
-  height:145vh;
+  height:155vh;
 }

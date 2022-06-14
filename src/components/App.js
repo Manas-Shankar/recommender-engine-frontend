@@ -17,10 +17,6 @@ function App(){
   const [logIn,showLogin] = React.useState(false);
   const [signUp,showSignUp] = React.useState(false);
   const app1 = new Realm.App({id: process.env.REACT_APP_REALM_APP_ID});
-  
-
- 
-  
 
   React.useEffect(()=>{
     async function getData () {
